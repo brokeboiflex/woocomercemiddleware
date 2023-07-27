@@ -1,0 +1,8 @@
+name = "woocomercemiddleware"
+main = "src/index.ts"
+compatibility_date = "2023-07-27"
+usage_model = "bundled"
+env = { }
+
+[triggers]
+crons = [ ]
