@@ -1,5 +1,3 @@
-Documentation generated using ChatGPT by OpenAI
-
 # WooCommerce Middleware using Cloudflare Workers
 
 The WooCommerce Middleware is a Cloudflare Worker that serves as a middleware for interacting with the WooCommerce REST API. It provides authentication, request handling, and response formatting for your WooCommerce API requests.
@@ -15,6 +13,8 @@ The WooCommerce Middleware is a Cloudflare Worker that serves as a middleware fo
 - [License](#license)
 
 ## Introduction
+
+This documentation was generated using ChatGPT by OpenAI
 
 The WooCommerce Middleware is designed to simplify and secure your interactions with the WooCommerce REST API. It handles authentication, signature generation, and response formatting, allowing you to focus on building your application while ensuring proper WooCommerce API integration.
 
