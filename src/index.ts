@@ -10,8 +10,6 @@
 
 import Crypto from 'crypto-js';
 
-const WC_URL = 'http://barber.local';
-
 function generateRandomNonce(length) {
 	const charset = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
 	let nonce = '';
@@ -45,7 +43,7 @@ const handler: ExportedHandler = {
 
 			const resource = url.searchParams.get('resource');
 
-			const apiUrl = `${WC_URL}/wp-json/wc/v3/${resource}`;
+			const apiUrl = `${env.WC_URL}/wp-json/wc/v3/${resource}`;
 			const nonce = generateRandomNonce(32);
 			const timestamp = Math.floor(Date.now() / 1000).toString();
 
@@ -115,6 +113,7 @@ const handler: ExportedHandler = {
 				},
 			});
 		} else if (request.method === 'POST') {
+			// Will work on it when I need it ;)
 		} else return MethodNotAllowed(request);
 	},
 };
