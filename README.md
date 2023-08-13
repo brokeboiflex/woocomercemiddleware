@@ -1,4 +1,4 @@
-<!-- Documentation generated using ChatGPT by OpenAI -->
+Documentation generated using ChatGPT by OpenAI
 
 # WooCommerce Middleware using Cloudflare Workers
 
@@ -9,7 +9,6 @@ The WooCommerce Middleware is a Cloudflare Worker that serves as a middleware fo
 - [Introduction](#introduction)
 - [Features](#features)
 - [Getting Started](#getting-started)
-- [Configuration](#configuration)
 - [Usage](#usage)
 - [Example](#example)
 - [Contributing](#contributing)
@@ -30,20 +29,25 @@ The WooCommerce Middleware is designed to simplify and secure your interactions 
 ## Getting Started
 
 1. Clone this repository to your local machine.
-2. Modify the configuration in the `worker.js` script to match your WooCommerce credentials, API endpoint, and allowed client URLs.
-3. Deploy the Cloudflare Worker using the Cloudflare Workers dashboard.
+2. Review the `worker.js` script to understand how the WooCommerce Middleware works.
+3. Modify the script's configuration parameters based on your WooCommerce credentials, API endpoint, and allowed client URLs.
+4. Deploy the Cloudflare Worker using the Cloudflare Workers dashboard.
 
-## Configuration
+## Usage
 
-In the `worker.js` script, you'll find a section to configure your WooCommerce credentials, API endpoint, and allowed client URLs:
+1. Deploy the Cloudflare Worker with your configured script.
+2. Use the Cloudflare Worker URL as your API endpoint in your application.
+3. Make API requests using GET or POST methods, and the middleware will handle authentication, formatting, and CORS.
+
+## Example
+
+Here's an example of how to make a GET request using the WooCommerce Middleware:
 
 ```javascript
-// WooCommerce API configuration
-const apiUrl = `${env.WC_URL}/wp-json/wc/v3`;
-const consumerKey = env.WC_CONSUMER_KEY;
-const consumerSecret = env.WC_CONSUMER_SECRET;
+const apiUrl = 'https://your-cloudflare-worker.your-subdomain.workers.dev/api/endpoint?resource=products&param1=value1&param2=value2';
+const response = await fetch(apiUrl, {
+  method: 'GET',
+});
 
-// Allowed client URLs for CORS
-const allowedClientURLs = [
-  'http://localhost:3000', // Replace with your client's URL
-];
+const data = await response.json();
+console.log(data); // Process the API response
