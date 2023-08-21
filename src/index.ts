@@ -30,9 +30,13 @@ const handler: ExportedHandler = {
 				},
 			});
 		}
+
+		const url = new URL(request.url);
+		const resource = url.searchParams.get('resource');
+		console.log(resource);
+
 		// Only GET requests work with this proxy.
 		if (request.method === 'GET') {
-			const url = new URL(request.url);
 			const queryParams = Array.from(url.searchParams.entries()).filter((qp) => qp[0] !== 'resource');
 			const queryParamsObject = queryParams.reduce((acc, [key, value]) => {
 				if (value !== '') {
@@ -40,8 +44,6 @@ const handler: ExportedHandler = {
 				}
 				return acc;
 			}, {});
-
-			const resource = url.searchParams.get('resource');
 
 			const apiUrl = `${env.WC_URL}/wp-json/wc/v3/${resource}`;
 			const nonce = generateRandomNonce(32);
